@@ -1,5 +1,47 @@
 @import '~antd/dist/antd.css';
 
-.App {
+.app-container {
   text-align: center;
+  padding: 10px 15px;
+}
+
+.gutter-example .ant-row > div {
+  background: transparent;
+  border: 0;
+}
+
+.gutter-box {
+  background: #00a0e9;
+  padding: 5px 0;
+}
+
+.renderer-image {
+  width: 100%;
+}
+
+.spin-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 50vh;
+}
+
+.app-empty-description {
+  min-height: 50vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.search-container {
+  margin: 25px 0;
+}
+
+.renderer-container {
+  margin: 25px 0;
+}
+
+.renderer-el {
+  padding: 8px;
 }
