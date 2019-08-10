@@ -31,7 +31,7 @@ const YouTubeTemplate = ({ snippet, id }) => {
             <div className='renderer-el-overflow'>
               <img
                 className='yt-play-icon'
-                src='/yt_play.png'
+                src='yt_play.png'
                 alt='play'
                 onClick={startVideo}
               />
