@@ -3,18 +3,22 @@ import './App.css';
 import Search from './components/search';
 import Renderer from './components/renderer';
 import Preloader from './components/preloader';
-import { fetchYouTubeVideos } from './utils';
+import { searchEngines, sources } from './services/search-engines';
 
-export default () => {
+export default function App() {
   const [state, setState] = useState({
     renderData: [],
     searchQuery: '',
-    loading: false
+    loading: false,
+    source: sources[0]
   });
+
+  const changeCurrentSource = source => setState({ ...state, source });
 
   const onClickSearchBtn = q => {
     setState({ ...state, loading: true });
-    fetchYouTubeVideos({ q })
+    const { fetchData } = searchEngines[state.source];
+    fetchData({ q })
       .then(renderData => setState({
         ...state,
         renderData,
@@ -27,13 +31,18 @@ export default () => {
     <div className="app-container">
       <Search
         onSearch={onClickSearchBtn}
+        sources={sources}
+        onSourceChange={changeCurrentSource}
       />
       {state.loading
         ? <Preloader />
         : <Renderer
             blocks={state.renderData}
+            currentSource={state.source}
           />
       }
+
+      {/*{JSON.stringify(state)}*/}
     </div>
   );
-}
+};
