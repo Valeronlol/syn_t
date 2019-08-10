@@ -2,7 +2,7 @@
   "name": "syn",
   "version": "0.1.0",
   "private": false,
-  "homepage": "https://valeronlol.github.com/",
+  "homepage": "https://valeronlol.github.com/syn_t",
   "dependencies": {
     "antd": "^3.21.3",
     "axios": "^0.19.0",
@@ -15,7 +15,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "deploy": "NODE_DEBUG=gh-pages gh-pages -d build"
+    "predeploy": "yarn run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": "react-app"
