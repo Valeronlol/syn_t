@@ -1,5 +1,5 @@
 import HTTP from '../services/http'
-import { GOOGL_API_KEY, INSTA_BASE_URL, INSTA_API_KEY } from './constants'
+import { GOOGLE_API_KEY, INSTA_BASE_URL, INSTA_API_KEY } from './constants'
 
 export const fetchYouTubeVideos = ({ q, maxResults = 20, type = 'video' }) => HTTP
   .get('/search', {
@@ -8,7 +8,7 @@ export const fetchYouTubeVideos = ({ q, maxResults = 20, type = 'video' }) => HT
       type,
       q,
       maxResults,
-      key: GOOGL_API_KEY
+      key: GOOGLE_API_KEY
     }
   })
   .then(response => response.items.map(({ id, snippet }) => ({
