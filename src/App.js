@@ -5,15 +5,17 @@ import Renderer from './components/renderer';
 import Preloader from './components/preloader';
 import { searchEngines, sources } from './services/search-engines';
 
-export default function App() {
-  const [state, setState] = useState({
-    renderData: [],
-    searchQuery: '',
-    loading: false,
-    source: sources[0]
-  });
+const initialState = {
+  renderData: [],
+  searchQuery: '',
+  loading: false,
+  source: sources[0]
+};
 
-  const changeCurrentSource = source => setState({ ...state, source });
+export default function App() {
+  const [state, setState] = useState(initialState);
+
+  const changeCurrentSource = source => setState({ ...initialState, source });
 
   const onClickSearchBtn = q => {
     setState({ ...state, loading: true });

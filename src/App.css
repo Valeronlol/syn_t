@@ -21,6 +21,42 @@
   border-radius: 4px;
 }
 
+.renderer-image-insta-container {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  bottom: 20px;
+  right: 20px;
+  z-index: 9;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, .75);
+  border: 1px solid #404040;
+  transition: 0.3s ease-in-out;
+  border-radius: 4px;
+}
+
+.renderer-image-insta-full {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.renderer-image-insta {
+  width: 100%;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.close-image-icon {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  font-size: 40px;
+  color: white;
+  cursor: pointer;
+}
+
 .spin-container {
   display: flex;
   justify-content: center;

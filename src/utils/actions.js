@@ -1,7 +1,7 @@
 import HTTP from '../services/http'
-import { GOOGL_API_KEY } from './constants'
+import { GOOGL_API_KEY, INSTA_BASE_URL, INSTA_API_KEY } from './constants'
 
-export const fetchYouTubeVideos = ({ q, maxResults = 5, type = 'video' }) => HTTP
+export const fetchYouTubeVideos = ({ q, maxResults = 20, type = 'video' }) => HTTP
   .get('/search', {
     params: {
       part: 'snippet',
@@ -16,17 +16,16 @@ export const fetchYouTubeVideos = ({ q, maxResults = 5, type = 'video' }) => HTT
     snippet
   })));
 
-export const fetchInstaImages = ({ q, maxResults = 5, type = 'video' }) => HTTP
-  .get('/search', {
+export const fetchInstaImages = ({ q }) => HTTP
+  .get(INSTA_BASE_URL, {
     params: {
-      part: 'snippet',
-      type,
+      key: INSTA_API_KEY,
       q,
-      maxResults,
-      key: GOOGL_API_KEY
+      image_type: 'photo'
     }
   })
-  .then(response => response.items.map(({ id, snippet }) => ({
-    id: id.videoId,
-    snippet
+  .then(response => response.hits.map(({ largeImageURL, previewURL, id }) => ({
+    largeImageURL,
+    previewURL,
+    id: id.toString()
   })));
