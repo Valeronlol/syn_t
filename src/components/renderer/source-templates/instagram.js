@@ -2,7 +2,7 @@ import PropTypes from "prop-types";
 import React, { useState } from "react";
 import { Col, Icon } from "antd";
 
-const InstagramTemplate = ({ largeImageURL, previewURL, id }) => {
+const InstagramTemplate = ({ originalUrl, previewURL, id }) => {
   const [isShowModal, setModalStatus] = useState(false);
   const showModal = () => setModalStatus(true);
   const hideModal = () => setModalStatus(false);
@@ -25,7 +25,7 @@ const InstagramTemplate = ({ largeImageURL, previewURL, id }) => {
             onClick={hideModal}
           />
           <img
-            src={largeImageURL}
+            src={originalUrl}
             alt={`full-${id}`}
             className='renderer-image-insta-full'
           />
@@ -36,7 +36,7 @@ const InstagramTemplate = ({ largeImageURL, previewURL, id }) => {
 };
 
 InstagramTemplate.propTypes = {
-  largeImageURL: PropTypes.string.isRequired,
+  originalUrl: PropTypes.string.isRequired,
   previewURL: PropTypes.string.isRequired,
   id: PropTypes.string.isRequired
 };

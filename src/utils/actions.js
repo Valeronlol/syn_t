@@ -10,11 +10,7 @@ export const fetchYouTubeVideos = ({ q, maxResults = 20, type = 'video' }) => HT
       maxResults,
       key: GOOGLE_API_KEY
     }
-  })
-  .then(response => response.items.map(({ id, snippet }) => ({
-    id: id.videoId,
-    snippet
-  })));
+  });
 
 export const fetchInstaImages = ({ q }) => HTTP
   .get(INSTA_BASE_URL, {
@@ -23,9 +19,4 @@ export const fetchInstaImages = ({ q }) => HTTP
       q,
       image_type: 'photo'
     }
-  })
-  .then(response => response.hits.map(({ largeImageURL, previewURL, id }) => ({
-    largeImageURL,
-    previewURL,
-    id: id.toString()
-  })));
+  });
